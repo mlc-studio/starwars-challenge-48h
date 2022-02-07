@@ -1,22 +1,29 @@
-<script setup>
-import bouttonVue from '../components/boutton.vue';
+<script>
+export default {
 
+  data() {
+    return {
+      count: 0
+    }
+  },
+  
+  methods: {
+    increment() {
+      this.count++
+    }
+  },
 
-const ex = "waf";
-let eyy = ["truc", "crabe"];
+  mounted() {
+    console.log(`The initial count is ${this.count}.`)
+  }
+}
+
 </script>
 
 
 
 <template>
     
-        <h1>
-            About page {{ex}} {{eyy}}
-        </h1>
-        
-    <bouttonVue /> 
-    
-            <boutton1 />
-        
+        <button @click="increment">count is: {{ count }}</button>
          
 </template>
