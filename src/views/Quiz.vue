@@ -7,11 +7,24 @@
     <a id="Thirdnav">wiki</a>
 </div>
 
+    <div class="progress">
+        <div id="check"></div>
+        <div id="check"></div>
+        <div id="check"></div>
+        <div id="check"></div>
+        <div id="check"></div>
+        <div id="check"></div>
+        <div id="check"></div>
+        <div id="check"></div>
+        <div id="check"></div>
+        <div id="check"></div>
+    </div>
+
     <div class="separator" id="top">
     </div>
 
     <div class="contend">
-        <h1>
+        <h1 class="pep_talk">
             “Remember…the Force will be with you, always.”
         </h1>
         <button>

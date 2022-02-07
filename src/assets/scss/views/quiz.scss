@@ -2,7 +2,7 @@ body {
     background-color: black;
 }
 
-h1 {
+.pep_talk {
     position: absolute;
     width: 628px;
     height: 344px;
@@ -74,4 +74,23 @@ button {
     text-align: center;
 
     color: #000000;
+}
+
+.progress {
+    display: flex;
+    justify-content: center;
+    
+}
+
+#check {
+
+    width: 60px;
+    height: 60px;
+    top: 150px;
+
+    border: 3px solid #FFFFFF;
+    border-radius: 100%;
+    box-sizing: border-box;
+    align-content: space-between;
+
 }
