@@ -7,6 +7,9 @@
     <a id="Thirdnav">wiki</a>
 </div>
 
+    <div class="separator" id="top">
+    </div>
+
     <div class="contend">
         <h1>
             “Remember…the Force will be with you, always.”
@@ -14,6 +17,9 @@
         <button>
             START
         </button>
+    </div>
+
+    <div class="separator" id="bot">
     </div>
 
     <a id="footer">Revenir à l'aceuil</a>

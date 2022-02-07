@@ -45,7 +45,22 @@ h1 {
     color: #FFFFFF;
 }
 
+.separator {
+    position: absolute;
+    width: 1200px;
+    height: 0px;
+    left: 122px;
+    background-color: #FFC929;
+    border: 3px solid #FFC929;
+}
 
+#top{
+    top: 169px;
+}
+
+#bot {
+    top: 940px;
+}
 
 button {
     background: #FFC929;
