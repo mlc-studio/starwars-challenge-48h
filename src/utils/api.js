@@ -14,6 +14,12 @@ export default class API {
     return res.data;
   }
 
+  // Get Details
+  static async getItemDetails(category, id) {
+    let res = await axiosAPI.get(`/${category}/${id}`);
+    return res.data;
+  }
+
   // Planets
   static async getAllPlanets() {
     let res = await axiosAPI.get('/planets');
