@@ -1,0 +1,111 @@
+////////////////////////////// contenue de la page /////////////////////////
+
+.finish_talk {
+    visibility: visible;position: absolute;
+    width: 515px;
+    height: 287px;
+    left: 137px;
+    top: 411px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+#score {
+    position: absolute;
+    width: 660px;
+    height: 163px;
+    left: 654px;
+    top: 421px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 144px;
+    line-height: 169px;
+    text-align: center;
+
+    -webkit-text-stroke: 2px#FFC929;
+}
+
+////////////////////////////////    partie global (a mettre dans un autre fichier ///////////////////////////////////
+
+#banner {
+    width: 100%;
+    height: 40px;
+    top: 0px;
+    border: 2px solid #E4B529;
+}
+
+#footer {
+    position: absolute;
+    width: 151px;
+    height: 24px;
+    left: 194px;
+    top: 964.5px;
+
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+/* identical to box height */
+
+
+    color: #FFFFFF;
+}
+
+///////////     separator (barre jaune de separation) ///////////////////
+
+.separator {
+    position: absolute;
+    width: 1200px;
+    height: 0px;
+    left: 122px;
+    background-color: #FFC929;
+    border: 3px solid #FFC929;
+}
+
+#top{
+    top: 169px;
+}
+
+#bot {
+    top: 940px;
+}
+
+//////////////////////  barre de progretion nombre de question ////////////////////////////////////
+
+.progress {
+    display: flex;
+    justify-content: center;
+    
+}
+
+#check {
+
+    width: 60px;
+    height: 60px;
+    top: 150px;
+
+    border: 3px solid #FFFFFF;
+    border-radius: 100%;
+    box-sizing: border-box;
+    align-content: space-between;
+
+}
+
+////////////////////////// backgroud image ///////////////////////////////////////////
+
+#imageBackground {
+    background-image: src('../src/assets/picture/starsFond.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
