@@ -100,7 +100,7 @@ const onGoBack = () => {
         v-for="(item, index) of resultAPI.results"
         :key="index"
       >
-        {{ item.name || item.title }} | {{ item.birth_year }}
+        {{ item.name || item.title }}
       </router-link>
     </div>
     <div v-else class="category__loading">
