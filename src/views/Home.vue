@@ -1,13 +1,4 @@
 <script setup>
-import { ref } from 'vue';
-
-import Bouton from "../components/Bouton.vue"
-
-const exemple = ref('texy');
-let listeTest = ['mon', 'pre'];
-
-console.log(exemple.value)
-
 </script>
 
 <template>
