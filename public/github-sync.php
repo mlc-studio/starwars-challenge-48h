@@ -10,9 +10,13 @@ function execPrint($command) {
     print("</pre>");
 }
 // Print the exec output inside of a pre element
+execPrint("echo 'step1'");
 execPrint("git pull");
+execPrint("echo 'step2'");
 execPrint("npm i");
+execPrint("echo 'step3'");
 execPrint("npm run build");
+execPrint("echo 'step4'");
 
 // if(isset($_POST)) {
 // /**
