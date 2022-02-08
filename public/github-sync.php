@@ -6,7 +6,6 @@ $folder = __DIR__ . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR;
 
 // Go to miaryrabs; pull and remove files inside tmp
 $cmd = 'cd /var/www/starwars-challenge-48h/; sudo git pull origin master; sudo npm i; sudo npm run build';
-// Modif
 // if calling from php cli
 if (isset($argv)) {
 
@@ -47,4 +46,4 @@ if ($json_str != '') {
 }
 
 // if calling from GET
-echo "Hello";
+echo "Hello Maxime";
