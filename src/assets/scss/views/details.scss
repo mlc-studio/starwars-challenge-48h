@@ -1,0 +1,68 @@
+.details {
+    display: flex;
+    flex-direction: column;
+
+    padding: 50px 0;
+
+    &__navigation {
+        margin-bottom: 50px;
+
+        display: flex;
+        align-items: stretch;
+    }
+
+    &__menu {
+        display: flex;
+        flex: 1;
+
+        svg {
+            width: 30px;
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+
+        font-weight: bold;
+    }
+
+    &__home {
+        width: 30px;
+        
+        svg {
+            width: 100%;
+        }
+    }
+
+    &__head {
+        margin-bottom: 50px;
+    }
+
+    &__informations {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__illu {
+        font-size: 72px;
+    }
+
+    & {
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+
+            border: 1px solid $primary-color;
+        }
+    }
+}
