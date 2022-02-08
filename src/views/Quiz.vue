@@ -20,6 +20,10 @@
         <div id="check"></div>
     </div>
 
+    <div id="imageBackgroud">
+        <img src="src\assets\picture\starsFond.png" alt="">
+    </div>
+
     <div class="separator" id="top">
     </div>
 
