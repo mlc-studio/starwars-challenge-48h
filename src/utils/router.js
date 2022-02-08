@@ -34,6 +34,8 @@ const routes = [
         path: '/category/:category/:id',
         name: 'Details',
         component: Details,
+    },
+    {
         path: '/quiz',
         name: 'Quiz',
         component: Quiz,
@@ -44,10 +46,10 @@ const routes = [
         component: Result,
     },
     {
-        path: '/question',
-        name: 'Question',
-        component: Question,
-    }
+        path: '/:pathMatch(.*)*',
+        name: 'catchAll',
+        component: Home
+     }
 ];
 
 const router = createRouter({

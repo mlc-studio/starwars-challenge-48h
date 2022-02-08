@@ -1,154 +1,154 @@
-/*body {
-    background-color: #000000;
-}*/
+// body {
+//     background-color: #000000;
+// }
 
-////////////////////////////// contenue de la page /////////////////////////
+// ////////////////////////////// contenue de la page /////////////////////////
 
-// page de resultat
-.finish_talk {
-    visibility: visible;position: absolute;
-    width: 515px;
-    height: 287px;
-    left: 137px;
-    top: 411px;
+// // page de resultat
+// .finish_talk {
+//     visibility: visible;position: absolute;
+//     width: 515px;
+//     height: 287px;
+//     left: 137px;
+//     top: 411px;
 
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 42px;
-    text-align: center;
+//     font-family: Roboto;
+//     font-style: normal;
+//     font-weight: normal;
+//     font-size: 36px;
+//     line-height: 42px;
+//     text-align: center;
 
-    color: #FFFFFF;
-}
+//     color: #FFFFFF;
+// }
 
-#score {
-    position: absolute;
-    width: 660px;
-    height: 163px;
-    left: 654px;
-    top: 421px;
+// #score {
+//     position: absolute;
+//     width: 660px;
+//     height: 163px;
+//     left: 654px;
+//     top: 421px;
 
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 144px;
-    line-height: 169px;
-    text-align: center;
+//     font-family: Roboto;
+//     font-style: normal;
+//     font-weight: normal;
+//     font-size: 144px;
+//     line-height: 169px;
+//     text-align: center;
 
-    -webkit-text-stroke: 2px#FFC929;
-}
+//     -webkit-text-stroke: 2px#FFC929;
+// }
 
-button {
-    background: #FFC929;
-    position: absolute;
-    width: 423px;
-    height: 191px;
-    left: 510px;
-    top: 609px;
-    font-size: 72px;
-    line-height: 84px;
-    text-align: center;
+// button {
+//     background: #FFC929;
+//     position: absolute;
+//     width: 423px;
+//     height: 191px;
+//     left: 510px;
+//     top: 609px;
+//     font-size: 72px;
+//     line-height: 84px;
+//     text-align: center;
 
-    color: #000000;
-}
+//     color: #000000;
+// }
 
-// page de début
-.pep_talk {
-    position: absolute;
-    width: 628px;
-    height: 344px;
-    left: 399px;
-    top: 217px;
+// // page de début
+// .pep_talk {
+//     position: absolute;
+//     width: 628px;
+//     height: 344px;
+//     left: 399px;
+//     top: 217px;
 
-    font-family: Segoe UI;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 72px;
-    line-height: 84px;
-    text-align: center;
+//     font-family: Segoe UI;
+//     font-style: normal;
+//     font-weight: normal;
+//     font-size: 72px;
+//     line-height: 84px;
+//     text-align: center;
 
-    color: #FFFFFF;
-}
+//     color: #FFFFFF;
+// }
 
-////////////////////////////////    partie global (a mettre dans un autre fichier ///////////////////////////////////
+// ////////////////////////////////    partie global (a mettre dans un autre fichier ///////////////////////////////////
 
-#banner {
-    position: absolute;
-    width: 100%;
-    height: 40px;
-    top: 0px;
-    border: 2px solid #E4B529;
-}
+// #banner {
+//     position: absolute;
+//     width: 100%;
+//     height: 40px;
+//     top: 0px;
+//     border: 2px solid #E4B529;
+// }
 
-#footer {
-    position: absolute;
-    width: 151px;
-    height: 24px;
-    left: 194px;
-    top: 964.5px;
+// #footer {
+//     position: absolute;
+//     width: 151px;
+//     height: 24px;
+//     left: 194px;
+//     top: 964.5px;
 
-    font-family: Segoe UI;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 24px;
-/* identical to box height */
+//     font-family: Segoe UI;
+//     font-style: normal;
+//     font-weight: bold;
+//     font-size: 18px;
+//     line-height: 24px;
+// /* identical to box height */
 
 
-    color: #FFFFFF;
-}
+//     color: #FFFFFF;
+// }
 
-///////////     separator (barre jaune de separation) ///////////////////
+// ///////////     separator (barre jaune de separation) ///////////////////
 
-.separator {
-    position: absolute;
-    width: 1200px;
-    height: 0px;
-    left: 122px;
-    background-color: #FFC929;
-    border: 3px solid #FFC929;
-}
+// .separator {
+//     position: absolute;
+//     width: 1200px;
+//     height: 0px;
+//     left: 122px;
+//     background-color: #FFC929;
+//     border: 3px solid #FFC929;
+// }
 
-#top{
-    top: 169px;
-}
+// #top{
+//     top: 169px;
+// }
 
-#bot {
-    top: 940px;
-}
+// #bot {
+//     top: 940px;
+// }
 
-//////////////////////  barre de progretion nombre de question ////////////////////////////////////
+// //////////////////////  barre de progretion nombre de question ////////////////////////////////////
 
-.progress {
-    top: 70px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
+// .progress {
+//     top: 70px;
+//     position: relative;
+//     display: flex;
+//     justify-content: center;
+//     gap: 15px;
+// }
 
-#check {
+// #check {
 
-    width: 60px;
-    height: 60px;
-    top: 150px;
-    display: flex;
+//     width: 60px;
+//     height: 60px;
+//     top: 150px;
+//     display: flex;
 
-    border: 3px solid #FFFFFF;
-    border-radius: 100%;
-    box-sizing: border-box;
-}
+//     border: 3px solid #FFFFFF;
+//     border-radius: 100%;
+//     box-sizing: border-box;
+// }
 
-////////////////////////// backgroud image ///////////////////////////////////////////
+// ////////////////////////// backgroud image ///////////////////////////////////////////
 
-#imageBackgroud {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    img {
-        object-fit: cover;
-        width: 100%;
-    }
-  }
+// #imageBackgroud {
+//     position: fixed;
+//     top: 0px;
+//     left: 0px;
+//     height: 100%;
+//     img {
+//         object-fit: cover;
+//         width: 100%;
+//     }
+//   }

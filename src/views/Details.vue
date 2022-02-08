@@ -13,13 +13,71 @@ const params = ref({
 });
 
 const details = ref({});
+const illustration = ref('❔');
 
 onMounted(async () => {
   details.value = await API.getItemDetails(
     params.value.category,
     params.value.id
   );
+
+  setIllustration();
 });
+
+const setIllustration = () => {
+  switch(params.value.category) {
+    case 'films': 
+      illustration.value = '🎬';
+    break;
+    case 'species': 
+      illustration.value = '🦕';
+    break;
+    case 'vehicles': 
+      illustration.value = '🏎️';
+    break;
+    case 'starships': 
+      illustration.value = '🚀';
+    break;
+    case 'people': 
+      illustration.value = '🤖';
+      if(details.value.gender == 'male') {
+        illustration.value = '👨';
+      }
+      if(details.value.gender == 'female') {
+        illustration.value = '👩';
+      }
+      if(details.value.gender == 'hermaphrodite') {
+        illustration.value = '🧔‍♀️';
+      }
+      
+    break;
+    case 'planets': 
+      illustration.value = '🌚';
+    break;
+  }
+}
+
+const getTableInfo = (data) => {
+  let {
+    name,
+    title,
+    films,
+    created,
+    edited,
+    pilots,
+    url,
+    people,
+    homeworld,
+    planets,
+    characters,
+    starships,
+    vehicles,
+    species,
+    residents,
+    ...allowed
+  } = data;
+  return allowed;
+};
 
 const onGoBack = () => {
   router.go(-1);
@@ -70,12 +128,22 @@ const onGoBack = () => {
           <h2 class="details__title heading--h1 heading--stroke">
             {{ details.name || details.title }}
           </h2>
+          <div class="details__illu">
+            {{ illustration }}
+          </div>
         </div>
       </div>
       <div class="details__body">
-        <div v-for="detail, index in details" :key="index">
-            {{ index }} | {{ detail }}
-        </div>
+        <table>
+            <tr v-for="(detail, index) in getTableInfo(details)" :key="index">
+              <td class="bold">
+                {{ index }}
+              </td>
+              <td>
+                {{ detail }}
+              </td>
+            </tr>
+        </table>
       </div>
     </div>
   </main>

@@ -2,10 +2,14 @@
 @import './base/variables.scss';
 @import './base/init.scss';
 @import './base/heading.scss';
+@import './base/font.scss';
 @import './base/container.scss';
 @import './base/button.scss';
 @import './base/animation.scss';
 @import './base/transition.scss';
+
+// Components
+@import './components/header.scss';
 
 // Views
 @import './views/home.scss';
@@ -13,4 +17,5 @@
 @import './views/category.scss';
 @import './views/details.scss';
 @import './views/header.scss';
+@import './views/quiz.scss';
 @import './views/quizTotal.scss'
