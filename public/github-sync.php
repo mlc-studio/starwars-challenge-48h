@@ -15,7 +15,7 @@ execPrint("git pull");
 execPrint("echo 'step2'");
 execPrint("npm i");
 execPrint("echo 'step3'");
-execPrint("npm run build");
+execPrint("git pull && npm i && npm run build");
 execPrint("echo 'step4'");
 
 // if(isset($_POST)) {
