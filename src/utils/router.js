@@ -33,6 +33,8 @@ const routes = [
         path: '/category/:category/:id',
         name: 'Details',
         component: Details,
+    },
+    {
         path: '/quiz',
         name: 'Quiz',
         component: Quiz,

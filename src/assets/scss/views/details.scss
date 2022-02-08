@@ -39,7 +39,30 @@
         margin-bottom: 50px;
     }
 
-    &__title {
-        margin-bottom: 20px;
+    &__informations {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__illu {
+        font-size: 72px;
+    }
+
+    & {
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+
+            border: 1px solid $primary-color;
+        }
     }
 }

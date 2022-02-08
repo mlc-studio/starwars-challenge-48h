@@ -22,4 +22,12 @@
         -1px 1px 0 $primary-color,
         1px 1px 0 $primary-color;
     }
+
+    &--white {
+        text-shadow:
+        -1px -1px 0 $text-color,  
+        1px -1px 0 $text-color,
+        -1px 1px 0 $text-color,
+        1px 1px 0 $text-color;
+    }
 }
