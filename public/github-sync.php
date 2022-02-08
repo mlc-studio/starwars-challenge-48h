@@ -1,4 +1,6 @@
 <?php
+
+if(isset($_POST)) {
 /**
  * add crontab -- * * * * * php /var/www/github-sync.php
  */
@@ -44,6 +46,7 @@ if ($json_str != '') {
     }
 
 }
-
+} else {
 // if calling from GET
 echo "Hello Maxime";
+}
