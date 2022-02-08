@@ -1,12 +1,13 @@
 <script setup></script>
 
 <template>
-<div id="banner">
-    <a id="Firstnav">home</a>
-    <a id="Secondnav">quiz</a>
-    <a id="Thirdnav">wiki</a>
-</div>
+
     <div id="imageBackgroud">
+        <div id="banner">
+            <a id="Firstnav">home</a>
+            <a id="Secondnav">quiz</a>
+            <a id="Thirdnav">wiki</a>
+        </div>
         <img src="src\assets\picture\starsFond.png" alt="">
     </div>
     

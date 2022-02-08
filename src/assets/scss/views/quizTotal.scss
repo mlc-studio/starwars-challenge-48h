@@ -74,6 +74,7 @@ button {
 ////////////////////////////////    partie global (a mettre dans un autre fichier ///////////////////////////////////
 
 #banner {
+    position: absolute;
     width: 100%;
     height: 40px;
     top: 0px;
@@ -120,9 +121,11 @@ button {
 //////////////////////  barre de progretion nombre de question ////////////////////////////////////
 
 .progress {
+    top: 70px;
     position: relative;
     display: flex;
     justify-content: center;
+    gap: 15px;
 }
 
 #check {
@@ -130,12 +133,11 @@ button {
     width: 60px;
     height: 60px;
     top: 150px;
+    display: flex;
 
     border: 3px solid #FFFFFF;
     border-radius: 100%;
     box-sizing: border-box;
-    align-content: space-between;
-
 }
 
 ////////////////////////// backgroud image ///////////////////////////////////////////
