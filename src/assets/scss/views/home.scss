@@ -11,8 +11,35 @@ body {
 .home p{
     color: yellow;
 }
+.home button
+{
+    background: none;
+}
+.home__banner__top ul
+{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: flex-start;
+    text-decoration:none;
+    border-bottom: solid yellow;
+}
+.home__banner__top li{
+    margin:2%
+}
+.header li{
+    list-style: none;
+    text-align: right;
+}
+
+a{
+    text-decoration: none;
+}
 .home__banner
 {  
+    text-decoration: none;
     margin: 0;
     min-height: 100%;
     padding: 0;
@@ -101,3 +128,4 @@ br
     width: 33%;
     height: 100%;
 }
+
