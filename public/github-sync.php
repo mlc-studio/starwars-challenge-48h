@@ -1,6 +1,6 @@
 <?php
 
-exec('git pull && npm i && npm run build');
+echo shell_exec("git pull && npm i && npm run build");
 
 // if(isset($_POST)) {
 // /**
