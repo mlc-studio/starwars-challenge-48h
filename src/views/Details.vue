@@ -21,6 +21,12 @@ onMounted(async () => {
   );
 });
 
+const getTableInfo = (data) => {
+    let { name, title, films, created, edited, pilots, url, people, homeworld, planets, characters, starships, vehicles, species, residents, ...allowed } = data;
+
+    return allowed;
+}
+
 const onGoBack = () => {
   router.go(-1);
 };
@@ -73,7 +79,7 @@ const onGoBack = () => {
         </div>
       </div>
       <div class="details__body">
-        <div v-for="detail, index in details" :key="index">
+        <div v-for="detail, index in getTableInfo(details)" :key="index">
             {{ index }} | {{ detail }}
         </div>
       </div>
