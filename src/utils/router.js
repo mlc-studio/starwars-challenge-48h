@@ -6,7 +6,8 @@ import Categories from '../views/Categories.vue';
 import Category from '../views/Category.vue';
 import Details from '../views/Details.vue';
 import Quiz from '../views/Quiz.vue';
-import Result from '../views/Result.vue'
+import Result from '../views/Result.vue';
+import Question from '../views/Question.vue';
 
 const routes = [
     {
@@ -41,6 +42,11 @@ const routes = [
         path: '/result',
         name: 'Result',
         component: Result,
+    },
+    {
+        path: '/question',
+        name: 'Question',
+        component: Question,
     }
 ];
 
