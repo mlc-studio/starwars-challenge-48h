@@ -5,7 +5,7 @@
 $folder = __DIR__ . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR;
 
 // Go to miaryrabs; pull and remove files inside tmp
-$cmd = 'cd /var/www/starwars-challenge-48h/; git pull origin master; rm -rf ' . $folder . '*';
+$cmd = 'cd /var/www/starwars-challenge-48h/; sudo git pull origin master; sudo npm i; sudo npm run build';
 
 // if calling from php cli
 if (isset($argv)) {
