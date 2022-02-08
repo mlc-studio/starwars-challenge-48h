@@ -43,7 +43,12 @@ const routes = [
         path: '/result',
         name: 'Result',
         component: Result,
-    }
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'catchAll',
+        component: Home
+     }
 ];
 
 const router = createRouter({
