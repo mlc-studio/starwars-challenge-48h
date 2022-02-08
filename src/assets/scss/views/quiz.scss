@@ -46,6 +46,12 @@
       text-align: center;
   }
 
+  &__heading {
+    padding: 20px 0;
+
+    text-align: center;
+  }
+
   &__content {
     display: flex;
     flex-direction: column;
@@ -99,6 +105,29 @@
     input {
         display: none;
     }
+
+    &.active {
+      background-color: rgba(168, 168, 168, 0.685);
+    }
+  }
+
+  &__score-container {
+    max-width: 400px;
+
+    text-align: center;
+  }
+
+  &__score-title {
+    margin-bottom: 25px;
+
+    font-size: 7rem;
+  }
+
+  &__score-citation {
+    margin-bottom: 20px;
+
+    font-size: 1.2rem;
+    line-height: 150%;
   }
 
   &__footer {
