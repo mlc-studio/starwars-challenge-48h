@@ -68,7 +68,7 @@ const onGameStart = () => {
                 Question number: {{ gameController.step + 1 }}
             </h3>
             <h2 class="quiz__game-question heading--h3">
-                Intitulé de la question
+                Intitulé de la question oui
             </h2>
               </div>
             <div class="quiz__game-separator"></div>
