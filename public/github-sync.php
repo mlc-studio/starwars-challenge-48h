@@ -1,7 +1,4 @@
 <?php
- `sudo git pull git@github.com:macsimtv/starwars-challenge-48h.git';
- ?>
-
 
 function execPrint($command) {
     $result = array();
