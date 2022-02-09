@@ -1,13 +1,36 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
+import API from "../utils/api";
+
 import Header from "../components/Header.vue";
 
+const categories = ref([
+  {
+    slug: "species",
+  },
+  {
+    slug: "films",
+  },
+  {
+    slug: "vehicles",
+  },
+  {
+    slug: "people",
+  },
+  {
+    slug: "starships",
+  },
+  {
+    slug: "planets",
+  },
+]);
 const gameController = ref({
   playerScore: 0,
   playerAnswers: [],
   playerCurrentAnswer: undefined,
 
+  isGameReady: false,
   isGameStart: false,
   isGameFinish: false,
   isValidate: false,
@@ -16,66 +39,95 @@ const gameController = ref({
   badPopup: "",
   rightPopup: "",
 
-  questions: [
-    {
-      title: "Titre de la question ?",
-      answers: [
-        "this one is wrong",
-        "this one is wrong to",
-        "this one is right",
-        "Wrong bro!",
-      ],
-      rightAnswer: 2,
-    },
-    {
-      title: "Titre de la question 2 ?",
-      answers: [
-        "this one is wrong",
-        "this one is wrong to",
-        "this one is right",
-        "Wrong bro!",
-      ],
-      rightAnswer: 2,
-    },
-    {
-      title: "Titre de la question 3 ?",
-      answers: [
-        "this one is wrong",
-        "this one is wrong to",
-        "this one is right",
-        "Wrong bro!",
-      ],
-      rightAnswer: 2,
-    },
-    {
-      title: "Titre de la question 4 ?",
-      answers: [
-        "this one is wrong",
-        "this one is wrong to",
-        "this one is right",
-        "Wrong bro!",
-      ],
-      rightAnswer: 2,
-    },
-  ],
-  questionCount: 4,
+  questions: [],
+  questionCount: 10,
 });
 
 onMounted(() => {
   generateQuestions();
-})
+});
 
-const generateQuestions = () => {
+const generateQuestions = async () => {
+  for (let i = 0; i < gameController.value.questionCount; i++) {
+    let category =
+      categories.value[Math.floor(Math.random() * categories.value.length)]
+        .slug;
+    let res = await API.getItemsFromCategory(category);
+    let pageCount = Math.ceil(res.count / 10);
 
-}
+    res = await API.getItemsFromCategory(
+      category,
+      randomIntFromInterval(1, pageCount)
+    );
+
+    let currentObject =
+      res.results[Math.floor(Math.random() * res.results.length)];
+
+    let fields = [];
+
+    switch (category) {
+      case "species":
+        fields = ["classification", "average_height"];
+        break;
+      case "films":
+        fields = ["episode_id", "director"];
+        break;
+      case "planets":
+        fields = ["climate", "gravity"];
+        break;
+      case "starships":
+        fields = ["cargo_capacity", "consumables", "model"];
+        break;
+      case "people":
+        fields = ["eye_color", "height", "gender"];
+        break;
+      case "vehicles":
+        fields = ["length", "cargo_capacity", "vehicle_class"];
+        break;
+    }
+
+    let field = fields[Math.floor(Math.random() * fields.length)];
+
+    let question = {
+      title: `What is the "${field.replace("_", " ")}" of the ${
+        category.slice(-1) == "s"
+          ? category.substring(0, category.length - 1)
+          : category
+      } with the ${
+        currentObject.name ? "name" : currentObject.title ? "title" : "name"
+      } "${currentObject.name || currentObject.title} ?"`,
+      answers: [currentObject[field]],
+      rightAnswer: currentObject[field],
+    };
+
+    for (let i = 0; i < 3; i++) {
+      res = await API.getItemsFromCategory(
+        category,
+        randomIntFromInterval(1, pageCount)
+      );
+      let badObject =
+        res.results[Math.floor(Math.random() * res.results.length)];
+      question.answers.push(badObject[field]);
+    }
+
+    question.answers = question.answers.sort((a, b) => 0.5 - Math.random());
+    question.answers = [...new Set(question.answers)];
+
+    gameController.value.questions.push(question);
+  }
+};
+
+const randomIntFromInterval = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
 
 const onGameStart = () => {
   gameController.value.isGameStart = true;
 };
 
-const onChooseAnswer = (index) => {
+const onChooseAnswer = (answer) => {
   if (gameController.value.isValidate) return;
-  gameController.value.playerCurrentAnswer = index;
+  gameController.value.playerCurrentAnswer = answer;
 };
 
 const onValidate = () => {
@@ -91,9 +143,7 @@ const onValidate = () => {
 
     gameController.value.rightPopup = "";
     gameController.value.badPopup = `Bad answer, the correct one was: ${
-      gameController.value.questions[gameController.value.step].answers[
-        gameController.value.questions[gameController.value.step].rightAnswer
-      ]
+      gameController.value.questions[gameController.value.step].rightAnswer
     }`;
   }
 
@@ -106,9 +156,7 @@ const onValidate = () => {
 
     gameController.value.badPopup = "";
     gameController.value.rightPopup = `You right ! The correct answer was: ${
-      gameController.value.questions[gameController.value.step].answers[
-        gameController.value.questions[gameController.value.step].rightAnswer
-      ]
+      gameController.value.questions[gameController.value.step].rightAnswer
     }`;
   }
 };
@@ -127,6 +175,10 @@ const onNextQuestion = () => {
 
   // Next
   gameController.value.step++;
+};
+
+const onReload = () => {
+  location.reload();
 };
 </script>
 
@@ -172,13 +224,51 @@ const onNextQuestion = () => {
     </div>
     <div
       class="quiz__content container"
-      :class="{ 'quiz__content--centered': !gameController.isGameStart || gameController.isGameFinish }"
+      :class="{
+        'quiz__content--centered':
+          !gameController.isGameStart || gameController.isGameFinish,
+      }"
     >
       <template v-if="!gameController.isGameStart">
         <h4 class="quiz__title heading--h1 heading--stroke heading--white">
           “Remember…the Force will be with you, always.”
         </h4>
-        <button @click.prevent="onGameStart" class="btn">Start Now</button>
+        <template
+          v-if="gameController.questions.length < gameController.questionCount"
+        >
+          <div class="quiz__loading container">
+            <div class="quiz__loading-bar">
+              <div
+                :style="`width: ${
+                  (gameController.questions.length /
+                    gameController.questionCount) *
+                  100
+                }%`"
+                class="quiz__loading-indicator"
+              ></div>
+            </div>
+            <h2 class="heading--h3 quiz__loading-title">Questions are being generated</h2>
+            <div class="quiz__loading-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                />
+              </svg>
+            </div>
+          </div>
+        </template>
+        <button v-else @click.prevent="onGameStart" class="btn">
+          Start Now
+        </button>
       </template>
       <template
         v-if="gameController.isGameStart && !gameController.isGameFinish"
@@ -195,13 +285,13 @@ const onNextQuestion = () => {
           <div class="quiz__game-separator"></div>
           <div class="quiz__game-answers">
             <div
-              @click.prevent="onChooseAnswer(index)"
+              @click.prevent="onChooseAnswer(answer)"
               v-for="(answer, index) in gameController.questions[
                 gameController.step
               ].answers"
               :key="index"
               class="quiz__game-answer"
-              :class="{ active: gameController.playerCurrentAnswer == index }"
+              :class="{ active: gameController.playerCurrentAnswer == answer }"
             >
               <label :for="`answer-${index}`">{{ answer }}</label>
               <input type="radio" :id="`answer-${index}`" name="game-answer" />
@@ -225,10 +315,7 @@ const onNextQuestion = () => {
             class="btn"
           >
             <template
-              v-if="
-                gameController.step + 1 ==
-                gameController.questionCount
-              "
+              v-if="gameController.step + 1 == gameController.questionCount"
             >
               Show Results
             </template>
@@ -239,14 +326,21 @@ const onNextQuestion = () => {
       <template v-if="gameController.isGameFinish">
         <div class="quiz__score-container">
           <p class="quiz__score-citation">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita voluptates omnis, aliquam distinctio odit excepturi labore nobis voluptate praesentium rerum laborum sapiente dolorum iusto fugit debitis alias ipsam incidunt sed?
+            “When gone am I, the last of the Jedi will you be. The Force runs strong in your family. Pass on what you have learned.” — Yoda
           </p>
           <h2 class="quiz__score-title heading--stroke">
-          {{ gameController.playerScore }} / {{ gameController.questionCount }}
+            {{ gameController.playerScore }} /
+            {{ gameController.questionCount }}
           </h2>
-          <router-link class="btn btn--outline" to="/">Go back Home</router-link>
+          <div class="quiz__score-buttons">
+            <router-link @click.prevent="onReload" class="btn" to="/quiz"
+              >Try Again</router-link
+            >
+            <router-link class="btn btn--outline" to="/"
+              >Go back Home</router-link
+            >
+          </div>
         </div>
-        
       </template>
     </div>
     <div class="quiz__footer container">
