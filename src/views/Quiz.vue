@@ -297,7 +297,7 @@ const onReload = () => {
               <input type="radio" :id="`answer-${index}`" name="game-answer" />
             </div>
           </div>
-          <div v-if="gameController.badPopup || gameController.rightPopup">
+          <div class="quiz__popup" :class="{ 'red': gameController.badPopup, 'green': gameController.rightPopup}" v-if="gameController.badPopup || gameController.rightPopup">
             <p>
               {{ gameController.badPopup || gameController.rightPopup }}
             </p>

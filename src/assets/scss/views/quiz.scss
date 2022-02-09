@@ -52,25 +52,24 @@
   }
 
   &__icon {
-      width: 75%;
+    width: 75%;
 
-      stroke: $primary-color;
+    stroke: $primary-color;
   }
 
   &__title {
-      margin-bottom: 50px;
+    margin-bottom: 50px;
 
-      font-size: 72px;
-      text-align: center;
-      
-      @media screen and (max-width: 768px) {
-        font-size: 48px;
-      }
-      
-      @media screen and (max-width: 480px) {
-        font-size: 36px;
-      }
+    font-size: 72px;
+    text-align: center;
 
+    @media screen and (max-width: 768px) {
+      font-size: 48px;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 36px;
+    }
   }
 
   &__heading {
@@ -87,35 +86,35 @@
     flex: 1;
 
     &--centered {
-        align-items: center;
-        justify-content: center;
+      align-items: center;
+      justify-content: center;
     }
   }
 
   &__game-head {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-      gap: 15px;
+    gap: 15px;
   }
 
   &__game-separator {
-      width: 80%;
-      max-width: 200px;
-      height: 2px;
+    width: 80%;
+    max-width: 200px;
+    height: 2px;
 
-      margin: 20px 0;
+    margin: 20px 0;
 
-      background-color: $primary-color;
+    background-color: $primary-color;
   }
 
   &__game-answers {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 
-      margin-bottom: 20px;
+    margin-bottom: 20px;
 
-      gap: 10px;
+    gap: 10px;
   }
 
   &__game-answer {
@@ -125,12 +124,12 @@
     border: 1px solid $primary-color;
 
     label {
-        padding: 10px;
-        display: block;
+      padding: 10px;
+      display: block;
     }
 
     input {
-        display: none;
+      display: none;
     }
 
     &.active {
@@ -160,7 +159,7 @@
   &__score-buttons {
     display: flex;
     justify-content: center;
-    
+
     gap: 10px;
   }
 
@@ -195,7 +194,7 @@
 
   &__loading-title {
     margin-bottom: 15px;
-    
+
     text-align: center;
   }
 
@@ -206,8 +205,24 @@
     svg {
       width: 30px;
 
-      animation: loading .8s ease-in-out infinite;
-    }    
+      animation: loading 0.8s ease-in-out infinite;
+    }
+  }
+
+  &__popup {
+    margin-bottom: 20px;
+
+    &.red {
+      * {
+        color: red;
+      }
+    }
+
+    &.green {
+      * {
+        color: green;
+      }
+    }
   }
 
   &__footer {
@@ -223,7 +238,7 @@
     gap: 10px;
 
     svg {
-        width: 25px;
+      width: 25px;
     }
-}
+  }
 }
